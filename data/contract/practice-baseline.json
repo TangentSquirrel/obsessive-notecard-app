@@ -1,0 +1,57 @@
+{
+  "name": "baseline-comer-seed42",
+  "count": 6,
+  "seed": 42,
+  "verbs": [
+    "comer"
+  ],
+  "skip_second_person": true,
+  "require_accents": false,
+  "retry_on_wrong": true,
+  "sticky_verb": true,
+  "expected": {
+    "prompts": [
+      {
+        "unit_id": "comer.present_indicative.1sg",
+        "verb_id": "comer",
+        "tense_id": "present_indicative",
+        "expected_answer": "como"
+      },
+      {
+        "unit_id": "comer.future_indicative.3sg",
+        "verb_id": "comer",
+        "tense_id": "future_indicative",
+        "expected_answer": "comerá"
+      },
+      {
+        "unit_id": "comer.future_indicative.1sg",
+        "verb_id": "comer",
+        "tense_id": "future_indicative",
+        "expected_answer": "comerei"
+      },
+      {
+        "unit_id": "comer.future_indicative.3sg",
+        "verb_id": "comer",
+        "tense_id": "future_indicative",
+        "expected_answer": "comerá"
+      },
+      {
+        "unit_id": "comer.future_indicative.1pl",
+        "verb_id": "comer",
+        "tense_id": "future_indicative",
+        "expected_answer": "comeremos"
+      },
+      {
+        "unit_id": "comer.future_indicative.3sg",
+        "verb_id": "comer",
+        "tense_id": "future_indicative",
+        "expected_answer": "comerá"
+      }
+    ],
+    "summary": {
+      "correct": 6,
+      "attempts": 6,
+      "prompts": 6
+    }
+  }
+}

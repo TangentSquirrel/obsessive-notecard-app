@@ -1,0 +1,3648 @@
+{
+  "schemaVersion": 1,
+  "id": "core-50",
+  "label": "Core verb library (seed)",
+  "dimensionDefinitions": [
+    {
+      "id": "time",
+      "label": "Time",
+      "values": [
+        {
+          "id": "past",
+          "label": "Past"
+        },
+        {
+          "id": "present",
+          "label": "Present"
+        },
+        {
+          "id": "future",
+          "label": "Future"
+        }
+      ]
+    },
+    {
+      "id": "mood",
+      "label": "Mood",
+      "values": [
+        {
+          "id": "indicative",
+          "label": "Indicative"
+        },
+        {
+          "id": "subjunctive",
+          "label": "Subjunctive"
+        },
+        {
+          "id": "imperative",
+          "label": "Imperative"
+        }
+      ]
+    },
+    {
+      "id": "aspect",
+      "label": "Aspect",
+      "values": [
+        {
+          "id": "perfective",
+          "label": "Perfect (preterite)"
+        },
+        {
+          "id": "imperfective",
+          "label": "Imperfect"
+        },
+        {
+          "id": "na",
+          "label": "—"
+        }
+      ]
+    },
+    {
+      "id": "person",
+      "label": "Person",
+      "values": [
+        {
+          "id": "1sg",
+          "label": "eu"
+        },
+        {
+          "id": "2sg",
+          "label": "tu/você"
+        },
+        {
+          "id": "3sg",
+          "label": "ele/ela"
+        },
+        {
+          "id": "1pl",
+          "label": "nós"
+        },
+        {
+          "id": "2pl",
+          "label": "vós"
+        },
+        {
+          "id": "3pl",
+          "label": "eles/elas"
+        }
+      ]
+    },
+    {
+      "id": "register",
+      "label": "Regularity",
+      "values": [
+        {
+          "id": "normal",
+          "label": "Regular pattern"
+        },
+        {
+          "id": "special",
+          "label": "Irregular / special"
+        }
+      ]
+    }
+  ],
+  "dimensionInteraction": {
+    "tenseSliceAxes": [
+      "time",
+      "mood",
+      "aspect"
+    ],
+    "unitAxes": [
+      "person",
+      "register"
+    ],
+    "rules": [
+      "Each tenseId maps to exactly one (time, mood, aspect) triple.",
+      "Units add person (6 forms) and register (regular vs irregular verb).",
+      "Past indicative splits by aspect: perfective = preterite, imperfective = imperfect.",
+      "Past subjunctive uses imperfect aspect only (imperfect subjunctive).",
+      "Present, future, and imperative use aspect 'na' (not applicable).",
+      "Imperative uses five persons (2sg, 3sg/você, 1pl, 2pl, 3pl/vocês); no 1sg.",
+      "Practice filters combine dimensions; progress is stored per unit (verb × tenseId × person)."
+    ]
+  },
+  "tenseCatalog": [
+    {
+      "id": "present_indicative",
+      "label": "Present indicative",
+      "dimensions": {
+        "time": "present",
+        "mood": "indicative",
+        "aspect": "na"
+      }
+    },
+    {
+      "id": "preterite_indicative",
+      "label": "Preterite indicative",
+      "dimensions": {
+        "time": "past",
+        "mood": "indicative",
+        "aspect": "perfective"
+      }
+    },
+    {
+      "id": "imperfect_indicative",
+      "label": "Imperfect indicative",
+      "dimensions": {
+        "time": "past",
+        "mood": "indicative",
+        "aspect": "imperfective"
+      }
+    },
+    {
+      "id": "present_subjunctive",
+      "label": "Present subjunctive",
+      "dimensions": {
+        "time": "present",
+        "mood": "subjunctive",
+        "aspect": "na"
+      }
+    },
+    {
+      "id": "imperfect_subjunctive",
+      "label": "Imperfect subjunctive",
+      "dimensions": {
+        "time": "past",
+        "mood": "subjunctive",
+        "aspect": "imperfective"
+      }
+    },
+    {
+      "id": "future_indicative",
+      "label": "Future indicative",
+      "dimensions": {
+        "time": "future",
+        "mood": "indicative",
+        "aspect": "na"
+      }
+    },
+    {
+      "id": "future_subjunctive",
+      "label": "Future subjunctive",
+      "dimensions": {
+        "time": "future",
+        "mood": "subjunctive",
+        "aspect": "na"
+      }
+    },
+    {
+      "id": "imperative_affirmative",
+      "label": "Affirmative imperative",
+      "dimensions": {
+        "time": "present",
+        "mood": "imperative",
+        "aspect": "na"
+      },
+      "persons": [
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
+      ]
+    }
+  ],
+  "verbs": [
+    {
+      "id": "ser",
+      "lemma": "ser",
+      "translation": "to be",
+      "regularity": "irregular",
+      "tags": [
+        "essential",
+        "irregular"
+      ],
+      "units": [
+        {
+          "id": "ser.present_indicative.1sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "ser — present/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "sou"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_indicative.2sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "ser — present/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "és"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_indicative.3sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "ser — present/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "é"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_indicative.1pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "ser — present/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "somos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_indicative.2pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "ser — present/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "sois"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_indicative.3pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "ser — present/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "são"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.preterite_indicative.1sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/perfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "fui"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.preterite_indicative.2sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/perfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "foste"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.preterite_indicative.3sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/perfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "foi"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.preterite_indicative.1pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/perfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "fomos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.preterite_indicative.2pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/perfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "fostes"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.preterite_indicative.3pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/perfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "foram"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_indicative.1sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "era"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_indicative.2sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "eras"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_indicative.3sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "era"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_indicative.1pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "éramos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_indicative.2pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "íeis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_indicative.3pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "ser — past/indicative/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "eram"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_subjunctive.1sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "ser — present/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "seja"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_subjunctive.2sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "ser — present/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "sejas"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_subjunctive.3sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "ser — present/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "seja"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_subjunctive.1pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "ser — present/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "sejamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_subjunctive.2pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "ser — present/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "sejais"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.present_subjunctive.3pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "ser — present/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "sejam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_subjunctive.1sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "ser — past/subjunctive/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "fosse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_subjunctive.2sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "ser — past/subjunctive/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "fosses"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_subjunctive.3sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "ser — past/subjunctive/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "fosse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_subjunctive.1pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "ser — past/subjunctive/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "fôssemos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_subjunctive.2pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "ser — past/subjunctive/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "fôsseis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperfect_subjunctive.3pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "ser — past/subjunctive/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "fossem"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_indicative.1sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "ser — future/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "serei"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_indicative.2sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "ser — future/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "serás"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_indicative.3sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "ser — future/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "será"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_indicative.1pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "ser — future/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "seremos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_indicative.2pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "ser — future/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "sereis"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_indicative.3pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "ser — future/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "serão"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_subjunctive.1sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "ser — future/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "for"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_subjunctive.2sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "ser — future/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "fores"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_subjunctive.3sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "ser — future/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "for"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_subjunctive.1pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "ser — future/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "formos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_subjunctive.2pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "ser — future/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "fordes"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.future_subjunctive.3pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "ser — future/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "forem"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperative_affirmative.2sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "ser — present/imperative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "sê"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperative_affirmative.3sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "ser — present/imperative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "seja"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperative_affirmative.1pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "ser — present/imperative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "sejamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperative_affirmative.2pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "ser — present/imperative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "sede"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "special"
+          }
+        },
+        {
+          "id": "ser.imperative_affirmative.3pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "ser — present/imperative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "sejam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "special"
+          }
+        }
+      ]
+    },
+    {
+      "id": "falar",
+      "lemma": "falar",
+      "translation": "to speak",
+      "regularity": "regular",
+      "tags": [
+        "essential",
+        "regular",
+        "ar"
+      ],
+      "units": [
+        {
+          "id": "falar.present_indicative.1sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "falar — present/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "falo"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_indicative.2sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "falar — present/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "falas"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_indicative.3sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "falar — present/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "fala"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_indicative.1pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "falar — present/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_indicative.2pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "falar — present/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "falais"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_indicative.3pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "falar — present/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.preterite_indicative.1sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/perfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "falei"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.preterite_indicative.2sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/perfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "falaste"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.preterite_indicative.3sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/perfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "falou"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.preterite_indicative.1pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/perfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falamos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.preterite_indicative.2pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/perfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "falastes"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.preterite_indicative.3pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/perfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falaram"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_indicative.1sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "falava"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_indicative.2sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "falavas"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_indicative.3sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "falava"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_indicative.1pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falávamos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_indicative.2pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "faláveis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_indicative.3pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "falar — past/indicative/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falavam"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_subjunctive.1sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "falar — present/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "fale"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_subjunctive.2sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "falar — present/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "fales"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_subjunctive.3sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "falar — present/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "fale"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_subjunctive.1pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "falar — present/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falemos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_subjunctive.2pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "falar — present/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "faleis"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.present_subjunctive.3pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "falar — present/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falem"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_subjunctive.1sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "falar — past/subjunctive/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "falasse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_subjunctive.2sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "falar — past/subjunctive/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "falasses"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_subjunctive.3sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "falar — past/subjunctive/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "falasse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_subjunctive.1pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "falar — past/subjunctive/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falássemos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_subjunctive.2pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "falar — past/subjunctive/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "falásseis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperfect_subjunctive.3pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "falar — past/subjunctive/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falassem"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_indicative.1sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "falar — future/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "falarei"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_indicative.2sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "falar — future/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "falarás"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_indicative.3sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "falar — future/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "falará"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_indicative.1pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "falar — future/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falaremos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_indicative.2pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "falar — future/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "falareis"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_indicative.3pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "falar — future/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falarão"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_subjunctive.1sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "falar — future/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "falar"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_subjunctive.2sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "falar — future/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "falares"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_subjunctive.3sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "falar — future/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "falar"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_subjunctive.1pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "falar — future/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falarmos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_subjunctive.2pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "falar — future/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "falardes"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.future_subjunctive.3pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "falar — future/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falarem"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperative_affirmative.2sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "falar — present/imperative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "fala"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperative_affirmative.3sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "falar — present/imperative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "fale"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperative_affirmative.1pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "falar — present/imperative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "falemos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperative_affirmative.2pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "falar — present/imperative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "falai"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "falar.imperative_affirmative.3pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "falar — present/imperative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "falem"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "id": "comer",
+      "lemma": "comer",
+      "translation": "to eat",
+      "regularity": "regular",
+      "tags": [
+        "essential",
+        "regular",
+        "er"
+      ],
+      "units": [
+        {
+          "id": "comer.present_indicative.1sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "comer — present/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "como"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_indicative.2sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "comer — present/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comes"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_indicative.3sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "comer — present/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "come"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_indicative.1pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "comer — present/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comemos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_indicative.2pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "comer — present/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comeis"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_indicative.3pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "comer — present/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comem"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.preterite_indicative.1sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/perfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "comi"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.preterite_indicative.2sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/perfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comeste"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.preterite_indicative.3sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/perfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "comeu"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.preterite_indicative.1pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/perfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comemos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.preterite_indicative.2pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/perfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comestes"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.preterite_indicative.3pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/perfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comeram"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_indicative.1sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "comia"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_indicative.2sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comias"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_indicative.3sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "comia"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_indicative.1pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comíamos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_indicative.2pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comíeis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_indicative.3pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "comer — past/indicative/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comiam"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_subjunctive.1sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "comer — present/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "coma"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_subjunctive.2sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "comer — present/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comas"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_subjunctive.3sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "comer — present/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "coma"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_subjunctive.1pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "comer — present/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_subjunctive.2pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "comer — present/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comais"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.present_subjunctive.3pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "comer — present/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_subjunctive.1sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "comer — past/subjunctive/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "comesse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_subjunctive.2sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "comer — past/subjunctive/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comesses"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_subjunctive.3sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "comer — past/subjunctive/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "comesse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_subjunctive.1pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "comer — past/subjunctive/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comêssemos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_subjunctive.2pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "comer — past/subjunctive/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comêsseis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperfect_subjunctive.3pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "comer — past/subjunctive/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comessem"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_indicative.1sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "comer — future/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "comerei"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_indicative.2sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "comer — future/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comerás"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_indicative.3sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "comer — future/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "comerá"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_indicative.1pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "comer — future/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comeremos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_indicative.2pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "comer — future/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comereis"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_indicative.3pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "comer — future/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comerão"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_subjunctive.1sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "comer — future/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "comer"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_subjunctive.2sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "comer — future/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "comeres"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_subjunctive.3sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "comer — future/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "comer"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_subjunctive.1pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "comer — future/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comermos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_subjunctive.2pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "comer — future/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comerdes"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.future_subjunctive.3pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "comer — future/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comerem"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperative_affirmative.2sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "comer — present/imperative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "come"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperative_affirmative.3sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "comer — present/imperative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "coma"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperative_affirmative.1pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "comer — present/imperative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "comamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperative_affirmative.2pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "comer — present/imperative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "comei"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "comer.imperative_affirmative.3pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "comer — present/imperative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "comam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "id": "partir",
+      "lemma": "partir",
+      "translation": "to leave",
+      "regularity": "regular",
+      "tags": [
+        "essential",
+        "regular",
+        "ir"
+      ],
+      "units": [
+        {
+          "id": "partir.present_indicative.1sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "partir — present/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "parto"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_indicative.2sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "partir — present/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partes"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_indicative.3sg",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "partir — present/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "parte"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_indicative.1pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "partir — present/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partimos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_indicative.2pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "partir — present/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partis"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_indicative.3pl",
+          "tenseId": "present_indicative",
+          "prompt": {
+            "ptHint": "partir — present/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partem"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.preterite_indicative.1sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/perfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "parti"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.preterite_indicative.2sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/perfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partiste"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.preterite_indicative.3sg",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/perfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "partiu"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.preterite_indicative.1pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/perfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partimos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.preterite_indicative.2pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/perfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partistes"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.preterite_indicative.3pl",
+          "tenseId": "preterite_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/perfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partiram"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "perfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_indicative.1sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "partia"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_indicative.2sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partias"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_indicative.3sg",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "partia"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_indicative.1pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partíamos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_indicative.2pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partíeis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_indicative.3pl",
+          "tenseId": "imperfect_indicative",
+          "prompt": {
+            "ptHint": "partir — past/indicative/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partiam"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "indicative",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_subjunctive.1sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "partir — present/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "parta"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_subjunctive.2sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "partir — present/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partas"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_subjunctive.3sg",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "partir — present/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "parta"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_subjunctive.1pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "partir — present/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_subjunctive.2pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "partir — present/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partais"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.present_subjunctive.3pl",
+          "tenseId": "present_subjunctive",
+          "prompt": {
+            "ptHint": "partir — present/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_subjunctive.1sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "partir — past/subjunctive/imperfective (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "partisse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_subjunctive.2sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "partir — past/subjunctive/imperfective (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partisses"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_subjunctive.3sg",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "partir — past/subjunctive/imperfective (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "partisse"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_subjunctive.1pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "partir — past/subjunctive/imperfective (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partíssemos"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_subjunctive.2pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "partir — past/subjunctive/imperfective (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partísseis"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperfect_subjunctive.3pl",
+          "tenseId": "imperfect_subjunctive",
+          "prompt": {
+            "ptHint": "partir — past/subjunctive/imperfective (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partissem"
+          ],
+          "dimensions": {
+            "time": "past",
+            "mood": "subjunctive",
+            "aspect": "imperfective",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_indicative.1sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "partir — future/indicative/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "partirei"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_indicative.2sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "partir — future/indicative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partirás"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_indicative.3sg",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "partir — future/indicative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "partirá"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_indicative.1pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "partir — future/indicative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partiremos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_indicative.2pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "partir — future/indicative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partireis"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_indicative.3pl",
+          "tenseId": "future_indicative",
+          "prompt": {
+            "ptHint": "partir — future/indicative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partirão"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "indicative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_subjunctive.1sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "partir — future/subjunctive/— (1sg)",
+            "en": ""
+          },
+          "answers": [
+            "partir"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_subjunctive.2sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "partir — future/subjunctive/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "partires"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_subjunctive.3sg",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "partir — future/subjunctive/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "partir"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_subjunctive.1pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "partir — future/subjunctive/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partirmos"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_subjunctive.2pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "partir — future/subjunctive/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "partirdes"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.future_subjunctive.3pl",
+          "tenseId": "future_subjunctive",
+          "prompt": {
+            "ptHint": "partir — future/subjunctive/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partirem"
+          ],
+          "dimensions": {
+            "time": "future",
+            "mood": "subjunctive",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperative_affirmative.2sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "partir — present/imperative/— (2sg)",
+            "en": ""
+          },
+          "answers": [
+            "parte"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperative_affirmative.3sg",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "partir — present/imperative/— (3sg)",
+            "en": ""
+          },
+          "answers": [
+            "parta"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3sg",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperative_affirmative.1pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "partir — present/imperative/— (1pl)",
+            "en": ""
+          },
+          "answers": [
+            "partamos"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "1pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperative_affirmative.2pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "partir — present/imperative/— (2pl)",
+            "en": ""
+          },
+          "answers": [
+            "parti"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "2pl",
+            "register": "normal"
+          }
+        },
+        {
+          "id": "partir.imperative_affirmative.3pl",
+          "tenseId": "imperative_affirmative",
+          "prompt": {
+            "ptHint": "partir — present/imperative/— (3pl)",
+            "en": ""
+          },
+          "answers": [
+            "partam"
+          ],
+          "dimensions": {
+            "time": "present",
+            "mood": "imperative",
+            "aspect": "na",
+            "person": "3pl",
+            "register": "normal"
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "targetIrregular": 25,
+    "targetRegular": 25,
+    "note": "Seed ships 4 exemplar verbs; extend VERB_CONJUGATIONS to reach 50+50."
+  }
+}

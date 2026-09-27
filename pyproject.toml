@@ -1,0 +1,18 @@
+[project]
+name = "verbpractice"
+version = "0.1.0"
+description = "CLI Portuguese verb tense practice"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+verbpractice = "verbpractice.__main__:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["verbpractice*"]

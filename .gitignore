@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+data/courses/my.json
+android/.gradle/
+android/**/build/
+android/local.properties
+ANDROID_HARNESS_LOG.md

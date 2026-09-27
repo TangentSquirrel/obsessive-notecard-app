@@ -1,0 +1,15 @@
+---
+description: Tell the user about every code or config edit in the same turn
+alwaysApply: true
+---
+
+# Code edit visibility
+
+Whenever you create, modify, or delete project files (source, scripts, data used by the app, config, rules):
+
+1. In the **same response** as the edit, include a short **"Code edits"** section (or equivalent clear heading).
+2. For each file: **path**, **what changed** (1–2 sentences), and **why** (tie to test failure, user request, or bug).
+3. Prefer a compact diff-style note or line-range citation when it helps the user jump to the change; do not bury edits only in a closing summary.
+4. If you only read/search/run commands with **no** file changes, say so explicitly when the user expects iteration (e.g. "No code edits this turn").
+
+Harness/log-only runs do not need a fake "edit" block unless files were touched.
